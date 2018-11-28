@@ -7,3 +7,4 @@ credentials.yml
 PGR301.iml
 infra
 infra.pub
+terraform/variables.tf

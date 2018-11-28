@@ -1,5 +1,5 @@
 provider "statuscake" {
-  username = "${statuscake_email}"
+  username = "${var.statuscake_username}"
 }
 
 resource "statuscake_test" "production" {
