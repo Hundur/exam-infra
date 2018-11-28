@@ -5,3 +5,5 @@ credentials_example.yml
 credentials.yml
 .terraform
 PGR301.iml
+infra
+infra.pub
