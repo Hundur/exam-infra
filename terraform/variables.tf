@@ -9,9 +9,9 @@ variable "pipeline_name" {
 }
 
 variable "heroku_email" {
-  default = "glenn@bech.no"
+  default = "hundurthepanda@gmail.com"
 }
 
 variable "statuscake_username" {
-  default = "glennbechno"
+  default = "hundurthepandagmailcom"
 }
