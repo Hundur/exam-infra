@@ -10,20 +10,19 @@ inputs:
 - name: source
 
 params:
-  heroku_email:
-  heroku_api_token:
-  app_name:
+    heroku_email:
+    heroku_api_token:
+    app_name:
 
 run:
   path: sh
   dir: source
   args:
-  - -exc
-  - |
-    machine api.heroku.com
-        login ${heroku_email}
-        password ${heroku_api_token}
-    machine git.heroku.com
-        login ${heroku_email}
-        password ${heroku_api_token}
-    heroku addons:add hostedgraphite --app hundur-app-ci
+    - -exc
+    - |
+      cat > /root/.netrc <<EOF
+      machine api.heroku.com
+          login ${heroku_email}
+          password ${heroku_api_token}
+      EOF
+      heroku addons:add hostedgraphite --app hundur-app-ci
