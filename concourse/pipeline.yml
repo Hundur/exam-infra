@@ -22,10 +22,6 @@ jobs:
   plan:
   - aggregate:
     - get: exam-infra
-  - task: graphite
-    file: exam-infra/concourse/heroku/task.yml
-    input_mapping: {source: exam-infra}
-
   - task: apply
     file: exam-infra/concourse/terraform/task.yml
     input_mapping: {source: exam-infra}
@@ -36,6 +32,11 @@ jobs:
       command: apply
       directories: |
           terraform
+
+  - task: graphite
+    file: exam-infra/concourse/heroku/task.yml
+    input_mapping: {source: exam-infra}
+
   - put: exam-infra
     params:
       repository: with-state
