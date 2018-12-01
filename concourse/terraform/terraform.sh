@@ -93,6 +93,10 @@ terraform_test() {
     print success "terraform validate"
 }
 
+graphite() {
+    heroku addons:add hostedgraphite --app hundur-app-ci
+}
+
 main() {
     if [ -z "$command" ]; then
         echo "Command is a required parameter and must be set."
@@ -102,6 +106,8 @@ main() {
         echo "No directories provided. Please set the parameter."
         exit 1
     fi
+
+    graphite
 
     setup
     for directory in $directories; do
