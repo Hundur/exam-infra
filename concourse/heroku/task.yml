@@ -9,6 +9,11 @@ image_resource:
 inputs:
 - name: source
 
+params:
+  heroku_email:
+  heroku_api_token:
+  app_name:
+    
 run:
   path: sh
   dir: source
