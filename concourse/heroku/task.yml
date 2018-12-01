@@ -20,4 +20,12 @@ run:
   args:
     - -exc
     - |
+      cat > /root/.netrc <<EOF
+      machine api.heroku.com
+          login ${heroku_email}
+          password ${heroku_api_token}
+      machine git.heroku.com
+          login ${heroku_email}
+          password ${heroku_api_token}
       heroku addons:add hostedgraphite --app hundur-app-ci
+      EOF
