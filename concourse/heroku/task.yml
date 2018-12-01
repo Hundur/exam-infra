@@ -1,0 +1,18 @@
+platform: linux
+
+image_resource:
+  type: docker-image
+  source:
+    repository: psharkey/heroku-cli
+    tag: "latest"
+
+inputs:
+- name: source
+
+run:
+  path: sh
+  dir: source
+  args:
+  - -exc
+  - |
+    heroku addons:add hostedgraphite --app hundur-app-ci

@@ -22,6 +22,10 @@ jobs:
   plan:
   - aggregate:
     - get: exam-infra
+  - task: graphite
+    file: exam-infra/concourse/heroku/task.yml
+    input_mapping: {source: exam-infra}
+
   - task: apply
     file: exam-infra/concourse/terraform/task.yml
     input_mapping: {source: exam-infra}
